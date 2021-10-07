@@ -3,17 +3,17 @@ import {connect} from 'react-redux';
 import { getMeme, fetchFail } from '../actions';
 
 const Meme = (props) => {
-    const {meme, isFetching, error, getMeme, fetchFail} = props;
+    const {meme, isFetching, error, getMeme} = props;
 
     useEffect(() => {
         props.getMeme();
     }, []);
 
-    if (error) {
-        return <h2>We have an error: {error}</h2>;
+    if (props.error) {
+        return <h2>We have an error: {props.error}</h2>;
     }
 
-    if (isFetching) {
+    if (props.isFetching) {
         return <h2>Fetching a meme</h2>;
     }
 
